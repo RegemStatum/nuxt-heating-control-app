@@ -1,0 +1,35 @@
+@use "./reset" as *;
+@use "./fonts" as *;
+
+@use "./functions" as *;
+
+body {
+  // Colors
+  color: getColor("nt-1");
+  background-color: getColor("nt-11");
+
+  // Typography
+  $headingFontWeight: 400;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  h7,
+  h8 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: $headingFontWeight;
+    line-height: getLineHeight(1300);
+  }
+
+  $textFontWeight: 400;
+  p,
+  a {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: $textFontWeight;
+    line-height: getLineHeight(1300);
+  }
+}
