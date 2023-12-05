@@ -1,10 +1,14 @@
-@use "./_breakpoints.scss" as *;
+@use "./breakpoints" as *;
+@use "./functions" as *;
 
 @mixin container {
   width: 100%;
+  margin: 0 auto;
+  padding: 0 getInd(400);
 
   @include sm {
     max-width: map-get($breakpoints, "sm");
+    padding: 0;
   }
 
   @include md {
