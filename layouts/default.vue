@@ -2,12 +2,12 @@
 
 <template>
   <div>
-    <header>Header</header>
-
+    <LayoutsAppLayoutAppHeader />
+    <LayoutsAppLayoutAppSidebar />
     <main>
       <slot></slot>
     </main>
-    <footer>Footer</footer>
+    <LayoutsAppLayoutAppFooter />
   </div>
 </template>
 
