@@ -32,4 +32,12 @@ body {
     font-weight: $textFontWeight;
     line-height: getLineHeight(1300);
   }
+
+  // Button
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
 }
