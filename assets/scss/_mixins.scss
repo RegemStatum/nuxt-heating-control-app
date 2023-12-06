@@ -49,3 +49,11 @@
 @mixin boxShadow5 {
   box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.2);
 }
+
+@mixin sectionContainer {
+  @include boxShadow1;
+
+  padding: getInd(800);
+  border-radius: getBorderRadius(800);
+  background-color: white;
+}
