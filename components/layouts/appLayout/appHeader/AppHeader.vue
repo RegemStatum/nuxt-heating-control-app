@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UserIcon } from "@heroicons/vue/24/outline";
 
-import AppHeaderLogo from "./AppHeaderLogo";
+import AppHeaderLogo from "./AppHeaderLogo.vue";
 </script>
 
 <template>
