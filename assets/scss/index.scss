@@ -4,6 +4,13 @@
 @use "./functions" as *;
 
 body {
+  $textFontWeight: 400;
+
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: $textFontWeight;
+  line-height: getLineHeight(1300);
+
   // Colors
   color: getColor("nt-1");
   background-color: getColor("nt-11");
@@ -24,7 +31,6 @@ body {
     line-height: getLineHeight(1300);
   }
 
-  $textFontWeight: 400;
   p,
   a {
     font-family: "Open Sans", sans-serif;
