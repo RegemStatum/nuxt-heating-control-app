@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <p>Login page</p>
+  <AuthForm :auth-type="'login'" />
 </template>

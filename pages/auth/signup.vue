@@ -1,9 +1,9 @@
-<script>
+<script setup lang="ts">
 definePageMeta({
   layout: "auth",
 });
 </script>
 
 <template>
-  <p>Signup page</p>
+  <AuthForm :auth-type="'signup'" />
 </template>
