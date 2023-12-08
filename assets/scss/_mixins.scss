@@ -1,6 +1,7 @@
 @use "./breakpoints" as *;
 @use "./functions" as *;
 
+// Containers
 @mixin container {
   width: 100%;
   margin: 0 auto;
@@ -28,6 +29,14 @@
   }
 }
 
+@mixin sectionContainer {
+  @include boxShadow1;
+
+  padding: getInd(800);
+  border-radius: getBorderRadius(800);
+  background-color: getColor("nt-12");
+}
+
 // Box shadows
 @mixin boxShadow1 {
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.12), 0 1px 2px hsla(0, 0%, 0%, 0.24);
@@ -50,10 +59,76 @@
   box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.2);
 }
 
-@mixin sectionContainer {
-  @include boxShadow1;
+// Inputs
+@mixin inputContainer {
+  // Position label relative to input-label-container
+  .input-label-container {
+    position: relative;
+  }
 
-  padding: getInd(800);
-  border-radius: getBorderRadius(800);
-  background-color: getColor("nt-12");
+  .label {
+    $top: 50%;
+    $translateX: 5px;
+    $translateY: -50%;
+    $fontWeight: 500;
+
+    position: absolute;
+    top: $top;
+    transform: translate($translateX, $translateY);
+    padding: 0 getInd(100);
+    border-radius: getBorderRadius(400);
+    font-size: getFontSize(300);
+    font-weight: $fontWeight;
+    line-height: getLineHeight(1000);
+    background-color: getColor("nt-12");
+  }
+
+  $errorColor: getColor("sp-red-4");
+  .input {
+    $width: 100%;
+
+    display: block;
+    width: $width;
+    padding: getInd(300);
+
+    // Elevate label on focus and when input has value
+    &:focus,
+    &:not(:placeholder-shown) {
+      + .label {
+        top: 0;
+      }
+    }
+
+    // Change outline color on focus
+    &:focus {
+      outline-color: getColor("nt-2");
+    }
+
+    // Change input color on error
+    &.error {
+      $borderWidth: 1px;
+
+      border: $borderWidth solid $errorColor;
+      color: $errorColor;
+
+      &:focus {
+        outline-color: $errorColor;
+      }
+
+      + .label {
+        color: $errorColor;
+      }
+    }
+  }
+
+  .hint-text,
+  .error-text {
+    padding-top: getInd(200);
+    font-size: getFontSize(300);
+    line-height: getLineHeight(300);
+  }
+
+  .error-text {
+    color: $errorColor;
+  }
 }
