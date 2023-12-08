@@ -132,3 +132,14 @@
     color: $errorColor;
   }
 }
+
+// Buttons
+@mixin mainButton {
+  $width: 100%;
+
+  width: $width;
+  padding: getInd(300) getInd(400);
+  border-radius: getBorderRadius(400);
+  color: getColor("nt-12");
+  background-color: getColor("nt-6");
+}
