@@ -2,8 +2,14 @@
 definePageMeta({
   layout: "auth",
 });
+
+const authStore = useAuthStore();
+const { setAuthTypeToSignup } = authStore;
+onMounted(() => {
+  setAuthTypeToSignup();
+});
 </script>
 
 <template>
-  <AuthForm :auth-type="'signup'" />
+  <AuthFormContainer />
 </template>
