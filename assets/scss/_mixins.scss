@@ -99,12 +99,14 @@
       }
     }
 
-    // Change outline color on focus
     &:focus {
       outline-color: getColor("nt-2");
     }
 
-    // Change input color on error
+    &:disabled {
+      outline-color: getColor("nt-8");
+    }
+
     &.error {
       $borderWidth: 1px;
 
@@ -142,4 +144,8 @@
   border-radius: getBorderRadius(400);
   color: getColor("nt-12");
   background-color: getColor("nt-6");
+
+  &:disabled {
+    background-color: getColor("nt-8");
+  }
 }
