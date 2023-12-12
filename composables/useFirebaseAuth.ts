@@ -55,6 +55,7 @@ const useFirebaseAuth = () => {
 
   const logoutUser = async () => {
     await signOut($auth);
+    user.value = null;
     localStorage.setItem(LocalStorageItems.User, "");
   };
 
