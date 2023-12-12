@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { UserIcon } from "@heroicons/vue/24/outline";
-
 import AppHeaderLogo from "./AppHeaderLogo.vue";
+import AppHeaderUser from "./AppHeaderUser.vue";
 </script>
 
 <template>
   <header class="header">
     <div class="inner-container">
       <AppHeaderLogo />
-      <UserIcon />
+      <AppHeaderUser />
     </div>
   </header>
 </template>
