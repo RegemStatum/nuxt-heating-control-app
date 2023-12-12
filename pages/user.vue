@@ -12,6 +12,6 @@ const handleUserLogout = async () => {
 </script>
 
 <template>
-  <h1>User page</h1>
+  <PagesPageTitle title="User" />
   <button @click="handleUserLogout">Log out</button>
 </template>

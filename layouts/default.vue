@@ -40,6 +40,7 @@ const { isSidebarOpen } = storeToRefs(appStore);
       @include container;
 
       flex: 1 0 auto;
+      padding-top: getInd(400);
       padding-bottom: $footerHeight;
     }
   }

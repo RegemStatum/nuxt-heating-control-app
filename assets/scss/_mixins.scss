@@ -5,11 +5,13 @@
 @mixin container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 getInd(400);
+  padding-left: getInd(400);
+  padding-right: getInd(400);
 
   @include sm {
     max-width: map-get($breakpoints, "sm");
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   @include md {
