@@ -2,6 +2,7 @@
 import AppFooterControlMenu from "./AppFooterControlMenu.vue";
 import AppFooterControlHome from "../../navigation/NavigationHome.vue";
 import AppFooterControlCharts from "../../navigation/NavigationCharts.vue";
+import AppFooterControlUser from "../../navigation/NavigationUser.vue";
 
 const route = useRoute();
 
@@ -18,6 +19,10 @@ const { closeSidebar } = appStore;
     />
     <AppFooterControlCharts
       :isActive="route.path === '/charts'"
+      @click="closeSidebar"
+    />
+    <AppFooterControlUser
+      :isActive="route.path === '/user'"
       @click="closeSidebar"
     />
   </nav>

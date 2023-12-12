@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavigationHome from "../navigation/NavigationHome.vue";
 import NavigationCharts from "../navigation/NavigationCharts.vue";
+import NavigationUser from "../navigation/NavigationUser.vue";
 
 const route = useRoute();
 
@@ -15,6 +16,10 @@ const { closeSidebar } = appStore;
       <NavigationHome :isActive="route.path === '/'" @click="closeSidebar" />
       <NavigationCharts
         :isActive="route.path === '/charts'"
+        @click="closeSidebar"
+      />
+      <NavigationUser
+        :isActive="route.path === '/user'"
         @click="closeSidebar"
       />
     </div>
