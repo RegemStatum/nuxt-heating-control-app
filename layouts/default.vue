@@ -72,6 +72,8 @@ const { isSidebarOpen } = storeToRefs(appStore);
 
       .main {
         @include sectionContainer;
+
+        padding-top: getInd(400);
       }
     }
   }
