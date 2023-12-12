@@ -30,7 +30,9 @@ const { closeSidebar } = appStore;
 
 <style scoped lang="scss">
 .control {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
 }
 
