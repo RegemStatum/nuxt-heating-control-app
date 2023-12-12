@@ -12,12 +12,16 @@ const emptyError = {
   message: "",
 };
 
+const emptyUser = {
+  email: "",
+  password: "",
+};
+
 const useAuthStore = defineStore(StoreName.AUTH, {
   state: () => ({
     authType: AuthType.SIGN_UP,
     user: {
-      email: "",
-      password: "",
+      ...emptyUser,
     },
     isLoading: false,
     error: { ...emptyError },
@@ -44,6 +48,9 @@ const useAuthStore = defineStore(StoreName.AUTH, {
     },
     clearError() {
       this.error = { ...emptyError };
+    },
+    clearUser() {
+      this.user = { ...emptyUser };
     },
   },
 });

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { AuthType } from "@/stores/authStore";
+
 interface Props {
   submitButtonText: string;
 }
@@ -8,7 +10,7 @@ const { registerUser, loginUser } = useFirebaseAuth();
 
 const authStore = useAuthStore();
 const { authType, user, isLoading, error } = storeToRefs(authStore);
-const { beginLoading, endLoading, setError } = authStore;
+const { beginLoading, endLoading, setError, clearUser, clearError } = authStore;
 
 const getErrorMessageFromErrorCode = (errorCode: string) => {
   return errorCode.split("/")[1].split("-").join(" ");
@@ -32,6 +34,8 @@ const handleSubmit = async () => {
         throw new Error(`There is no ${authType.value} authentication type`);
     }
 
+    clearUser();
+    clearError();
     await navigateTo("/");
     endLoading();
   } catch (err: any) {
