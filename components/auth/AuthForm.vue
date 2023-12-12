@@ -85,7 +85,7 @@ const handleSubmit = async () => {
   }
 
   .submit-btn {
-    @include mainButton;
+    @include primaryButton;
 
     display: flex;
     justify-content: center;
