@@ -60,7 +60,7 @@ const { isSidebarOpen } = storeToRefs(appStore);
       margin-top: $sidebarMainContainerMarginTop;
 
       .sidebar {
-        $sidebarHeight: 197px;
+        $sidebarHeight: 243px;
         $headerHeight: 46px;
 
         position: sticky;

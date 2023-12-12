@@ -2,7 +2,8 @@
 import AppFooterControlMenu from "./AppFooterControlMenu.vue";
 import AppFooterControlHome from "../../navigation/NavigationHome.vue";
 import AppFooterControlCharts from "../../navigation/NavigationCharts.vue";
-import AppFooterControlUser from "../../navigation/NavigationUser.vue";
+// import AppFooterControlUser from "../../navigation/NavigationUser.vue";
+import AppFooterControlRadiators from "../../navigation/NavigationRadiators.vue";
 
 const route = useRoute();
 
@@ -17,22 +18,28 @@ const { closeSidebar } = appStore;
       :isActive="route.path === '/'"
       @click="closeSidebar"
     />
+    <AppFooterControlRadiators
+      :isActive="route.path === '/radiators'"
+      @click="closeSidebar"
+    />
     <AppFooterControlCharts
       :isActive="route.path === '/charts'"
       @click="closeSidebar"
     />
-    <AppFooterControlUser
+    <!-- <AppFooterControlUser
       :isActive="route.path === '/user'"
       @click="closeSidebar"
-    />
+    /> -->
   </nav>
 </template>
 
 <style scoped lang="scss">
 .control {
+  $itemsInControl: 4;
+
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat($itemsInControl, 1fr);
   justify-content: space-around;
 }
 

@@ -2,6 +2,7 @@
 import NavigationHome from "../navigation/NavigationHome.vue";
 import NavigationCharts from "../navigation/NavigationCharts.vue";
 import NavigationUser from "../navigation/NavigationUser.vue";
+import NavigationRadiators from "../navigation/NavigationRadiators.vue";
 
 const route = useRoute();
 
@@ -14,6 +15,10 @@ const { closeSidebar } = appStore;
     <h5 class="heading">Pages</h5>
     <div class="pages">
       <NavigationHome :isActive="route.path === '/'" @click="closeSidebar" />
+      <NavigationRadiators
+        :isActive="route.path === '/radiators'"
+        @click="closeSidebar"
+      />
       <NavigationCharts
         :isActive="route.path === '/charts'"
         @click="closeSidebar"
