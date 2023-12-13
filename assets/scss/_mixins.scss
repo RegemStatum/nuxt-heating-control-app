@@ -27,7 +27,7 @@
   }
 
   @include xxl {
-    max-width: map-get($breakpoints, "xxl");
+    max-width: map-get($breakpoints, "xl");
   }
 }
 
