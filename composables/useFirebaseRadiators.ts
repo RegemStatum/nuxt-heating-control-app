@@ -1,4 +1,4 @@
-import { MOCK_RADIATORS, Radiator } from "@/constants/mock/radiators";
+import { MOCK_RADIATORS } from "@/constants/mock/radiators";
 
 const START_HOUR = 0;
 const END_HOUR = 23;
@@ -49,7 +49,7 @@ const useFirebaseRadiators = () => {
   }
 
   const getRadiatorsHistoryByDate = (date: string) => {
-    const radiatorIds = Object.keys(Radiator);
+    const radiatorIds = Object.keys(MOCK_RADIATORS);
     const radiatorsHistory: RadiatorsDateData = {
       date,
       hours: {},
