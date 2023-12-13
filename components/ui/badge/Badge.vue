@@ -42,7 +42,7 @@ const props = defineProps<Props>();
   }
 
   .info-message {
-    $fontWeight: 600;
+    $fontWeight: 500;
 
     font-size: getFontSize(300);
     font-weight: $fontWeight;
