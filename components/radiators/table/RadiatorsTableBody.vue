@@ -1,0 +1,42 @@
+<script setup lang="ts">
+const { getRadiatorsData, getRadiatorsHistoryByDate } = useFirebaseRadiators();
+const radiators = getRadiatorsData();
+</script>
+
+<template>
+  <tbody class="table-body">
+    <tr v-for="{ name, status, temperature } of radiators" class="table-row">
+      <th scope="row" class="name">{{ name }}</th>
+      <td class="temperature">
+        {{ temperature }}
+      </td>
+      <td class="status">
+        <UiBadge v-if="status" text="on" type="success" />
+        <UiBadge v-else text="off" type="error" />
+      </td>
+    </tr>
+  </tbody>
+</template>
+
+<style scoped lang="scss">
+.table-row {
+  &:nth-child(2n + 1) {
+    background-color: getColor("nt-10");
+  }
+
+  .name {
+    padding-left: getInd(300);
+    text-transform: capitalize;
+  }
+
+  .temperature {
+    text-align: center;
+  }
+
+  .status {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+  }
+}
+</style>

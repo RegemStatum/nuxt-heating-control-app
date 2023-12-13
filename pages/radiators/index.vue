@@ -2,6 +2,7 @@
 
 <template>
   <PagesPageTitle title="Radiators" />
+  <RadiatorsTable />
 </template>
 
 <style scoped lang="scss"></style>
