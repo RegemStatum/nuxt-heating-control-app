@@ -37,41 +37,36 @@ const useFirebaseRadiators = () => {
     temperature: number;
   }
 
-  type RadiatorId = string;
-  interface RadiatorsHourData {
-    radiators: Record<RadiatorId, RadiatorHourData>;
-  }
-
   type Hour = string;
-  interface RadiatorsDateData {
+  type RadiatorData = Record<Hour, RadiatorHourData>;
+
+  type RadiatorId = string;
+  interface RadiatorsData {
     date: string;
-    hours: Record<Hour, RadiatorsHourData>;
+    radiators: Record<RadiatorId, RadiatorData>;
   }
 
   const getRadiatorsHistoryByDate = (date: string) => {
     const radiatorIds = Object.keys(MOCK_RADIATORS);
-    const radiatorsHistory: RadiatorsDateData = {
+    const radiatorsHistory: RadiatorsData = {
       date,
-      hours: {},
+      radiators: {},
     };
 
-    for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
-      const hourHistory: RadiatorsHourData = {
-        radiators: {},
-      };
+    for (let radiatorId of radiatorIds) {
+      const radiatorDataByHours: RadiatorData = {};
 
-      for (let radiatorId of radiatorIds) {
+      for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
         const status = getRadiatorStatus(radiatorId);
         const temperature = getRadiatorTemperature(radiatorId);
-
-        const radiatorData: RadiatorHourData = {
+        const hourRadiatorData = {
           status,
           temperature,
         };
-        hourHistory.radiators[radiatorId] = radiatorData;
+        radiatorDataByHours[hour] = hourRadiatorData;
       }
 
-      radiatorsHistory.hours[hour] = hourHistory;
+      radiatorsHistory.radiators[radiatorId] = radiatorDataByHours;
     }
 
     return radiatorsHistory;
