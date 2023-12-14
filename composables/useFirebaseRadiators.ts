@@ -4,32 +4,41 @@ const START_HOUR = 0;
 const END_HOUR = 23;
 
 const useFirebaseRadiators = () => {
-  const checkIsRadiator = (id: string) => {
-    const isRadiator = MOCK_RADIATORS.hasOwnProperty(id);
+  const checkIsRadiator = (radiatorId: string) => {
+    const isRadiator = MOCK_RADIATORS.hasOwnProperty(radiatorId);
     return isRadiator;
   };
 
-  const getRadiatorStatus = (id: string) => {
-    const isRadiator = checkIsRadiator(id);
+  const validateRadiator = (radiatorId: string) => {
+    const isRadiator = checkIsRadiator(radiatorId);
     if (!isRadiator) {
-      throw new Error(`There is no radiator with id: ${id}`);
+      throw new Error(`There is no radiator with id: ${radiatorId}`);
     }
-    const radiatorStatus = MOCK_RADIATORS[id].status;
+  };
+
+  const getRadiatorStatus = (radiatorId: string) => {
+    validateRadiator(radiatorId);
+
+    const radiatorStatus = MOCK_RADIATORS[radiatorId].status;
     return radiatorStatus;
   };
 
-  const getRadiatorTemperature = (id: string) => {
-    const isRadiator = checkIsRadiator(id);
-    if (!isRadiator) {
-      throw new Error(`There is no radiator with id: ${id}`);
-    }
+  const getRadiatorTemperature = (radiatorId: string) => {
+    validateRadiator(radiatorId);
 
     const randomAddSign = Math.random() > 0.5 ? 1 : -1;
     const randomAdd = randomAddSign * Math.floor(Math.random() * 3);
 
-    const radiatorAverageTemperature = MOCK_RADIATORS[id].temperature;
+    const radiatorAverageTemperature = MOCK_RADIATORS[radiatorId].temperature;
     const radiatorTemperature = radiatorAverageTemperature + randomAdd;
     return radiatorTemperature;
+  };
+
+  const getRadiatorName = (radiatorId: string) => {
+    validateRadiator(radiatorId);
+
+    const name = MOCK_RADIATORS[radiatorId].name;
+    return name;
   };
 
   interface RadiatorHourData {
@@ -38,7 +47,10 @@ const useFirebaseRadiators = () => {
   }
 
   type Hour = string;
-  type RadiatorData = Record<Hour, RadiatorHourData>;
+  interface RadiatorData {
+    name: string;
+    hours: Record<Hour, RadiatorHourData>;
+  }
 
   type RadiatorId = string;
   interface RadiatorsData {
@@ -54,7 +66,11 @@ const useFirebaseRadiators = () => {
     };
 
     for (let radiatorId of radiatorIds) {
-      const radiatorDataByHours: RadiatorData = {};
+      const radiatorName = getRadiatorName(radiatorId);
+      const radiatorDataByHours: RadiatorData = {
+        name: radiatorName,
+        hours: {},
+      };
 
       for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
         const status = getRadiatorStatus(radiatorId);
@@ -63,7 +79,7 @@ const useFirebaseRadiators = () => {
           status,
           temperature,
         };
-        radiatorDataByHours[hour] = hourRadiatorData;
+        radiatorDataByHours.hours[hour] = hourRadiatorData;
       }
 
       radiatorsHistory.radiators[radiatorId] = radiatorDataByHours;
