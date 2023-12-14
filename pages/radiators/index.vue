@@ -2,10 +2,12 @@
 
 <template>
   <PageTitle title="Radiators" />
-  <!-- <h2>Current status</h2> -->
-  <RadiatorsList />
-  <!-- <h2>History</h2>
-  <RadiatorsHistory /> -->
+  <PageSection title="Radiators list">
+    <RadiatorsList />
+  </PageSection>
+  <PageSection title="History">
+    <RadiatorsHistory />
+  </PageSection>
 </template>
 
 <style scoped lang="scss"></style>

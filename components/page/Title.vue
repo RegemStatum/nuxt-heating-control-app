@@ -12,14 +12,15 @@ defineProps<Props>();
 
 <style scoped lang="scss">
 .heading {
-  padding-top: getInd(200);
-  padding-bottom: getInd(200);
+  padding-top: getInd(500);
+  padding-bottom: getInd(500);
   font-size: getFontSize(700);
   line-height: getLineHeight(700);
 }
 
 @include lg {
   .heading {
+    padding-top: 0;
     line-height: getLineHeight(600);
   }
 }

@@ -34,7 +34,7 @@
 @mixin sectionContainer {
   @include boxShadow1;
 
-  padding: getInd(800);
+  padding: getInd(1000);
   border-radius: getBorderRadius(800);
   background-color: getColor("nt-12");
 }
