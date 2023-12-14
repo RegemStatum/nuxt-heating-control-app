@@ -1,7 +1,6 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <PagesPageTitle title="User" />
+  <PageTitle title="User" />
   <UserControl />
 </template>

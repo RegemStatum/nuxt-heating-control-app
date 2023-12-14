@@ -1,3 +1,3 @@
 <template>
-  <PagesPageTitle title="Home" />
+  <PageTitle title="Home" />
 </template>
