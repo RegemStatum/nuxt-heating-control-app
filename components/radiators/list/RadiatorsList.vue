@@ -3,8 +3,8 @@
 <template>
   <div class="container">
     <table class="table">
-      <RadiatorsTableHead />
-      <RadiatorsTableBody />
+      <RadiatorsListHead />
+      <RadiatorsListBody />
     </table>
   </div>
 </template>

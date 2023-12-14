@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { getRadiatorsData, getRadiatorsHistoryByDate } = useFirebaseRadiators();
+const { getRadiatorsData } = useFirebaseRadiators();
 const radiators = getRadiatorsData();
 </script>
 

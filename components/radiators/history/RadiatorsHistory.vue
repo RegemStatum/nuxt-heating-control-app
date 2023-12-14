@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <PagesPageTitle title="Radiators" />
-  <RadiatorsList />
+  <p>RadiatorsHistory</p>
 </template>
 
 <style scoped lang="scss"></style>
