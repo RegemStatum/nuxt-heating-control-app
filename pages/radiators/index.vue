@@ -5,9 +5,13 @@
   <PageSection title="Radiators list">
     <RadiatorsList />
   </PageSection>
-  <PageSection title="History">
+  <PageSection title="History" class="history-section">
     <RadiatorsHistory />
   </PageSection>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.history-section {
+  padding-bottom: 0;
+}
+</style>
