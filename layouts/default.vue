@@ -26,7 +26,7 @@ const { isSidebarOpen } = storeToRefs(appStore);
   position: relative;
   display: flex;
   flex-direction: column;
-  height: $containerHeight;
+  min-height: $containerHeight;
 
   .sidebar-main-container {
     .sidebar {
