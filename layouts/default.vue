@@ -41,7 +41,7 @@ const { isSidebarOpen } = storeToRefs(appStore);
 
       flex: 1 0 auto;
       padding-top: getInd(400);
-      padding-bottom: $footerHeight;
+      padding-bottom: calc($footerHeight + getInd(600));
     }
   }
 }
@@ -73,7 +73,7 @@ const { isSidebarOpen } = storeToRefs(appStore);
       .main {
         @include sectionContainer;
 
-        // padding-top: getInd(400);
+        margin-bottom: getInd(1400);
       }
     }
   }
