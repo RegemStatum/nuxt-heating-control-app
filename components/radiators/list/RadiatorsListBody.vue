@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const { getRadiatorsData } = useFirebaseRadiators();
-const radiators = getRadiatorsData();
+const radiators = useState("radiators", () => getRadiatorsData());
 </script>
 
 <template>
   <tbody class="table-body">
-    <tr v-for="{ name, status, temperature } of radiators" class="table-row">
+    <tr
+      v-for="({ name, temperature, status }, index) of radiators"
+      :key="index"
+      class="table-row"
+    >
       <th scope="row" class="name">{{ name }}</th>
       <td class="temperature">
         {{ temperature }}
@@ -25,7 +29,7 @@ const radiators = getRadiatorsData();
   }
 
   .name {
-    padding-left: getInd(300);
+    padding-left: getInd(400);
     text-transform: capitalize;
   }
 

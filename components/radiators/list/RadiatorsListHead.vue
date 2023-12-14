@@ -13,19 +13,21 @@
 <style scoped lang="scss">
 .header {
   $fontWeight: 600;
+
+  min-width: max-content;
   font-weight: $fontWeight;
   text-align: center;
 
   &.name {
-    width: 35%;
+    width: 33.3333%;
   }
 
   &.status {
-    width: 20%;
+    width: 33.3333%;
   }
 
   &.temperature {
-    width: 45%;
+    width: 33.3333%;
   }
 }
 </style>

@@ -22,6 +22,11 @@
       padding-top: getInd(300);
       padding-bottom: getInd(300);
     }
+
+    th[scope="col"] {
+      padding-top: getInd(400);
+      padding-bottom: getInd(400);
+    }
   }
 }
 </style>
