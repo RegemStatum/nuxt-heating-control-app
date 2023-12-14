@@ -24,7 +24,7 @@ const formatHour = (hour: string) => {
       :key="hour"
       class="table-row"
     >
-      <th scope="row" class="hour">{{ formatHour(hour) }}</th>
+      <th scope="row" class="hour">{{ formatHour(hour) }}:00</th>
       <td class="temperature">{{ temperature }}</td>
       <td class="status">
         <UiBadge v-if="status" text="on" type="success" />
