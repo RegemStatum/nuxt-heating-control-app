@@ -27,7 +27,7 @@ const useFirebaseRadiators = () => {
     validateRadiator(radiatorId);
 
     const randomAddSign = Math.random() > 0.5 ? 1 : -1;
-    const randomAdd = randomAddSign * Math.floor(Math.random() * 3);
+    const randomAdd = randomAddSign * Math.floor(Math.random() * 2);
 
     const radiatorAverageTemperature = MOCK_RADIATORS[radiatorId].temperature;
     const radiatorTemperature = radiatorAverageTemperature + randomAdd;
