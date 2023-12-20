@@ -1,15 +1,32 @@
 <script setup lang="ts">
-const { getRadiatorsHistoryByDate } = useFirebaseRadiators();
-const radiatorsHistory = useState("radiatorsHistory", () =>
-  getRadiatorsHistoryByDate("14/12/2023")
-);
-console.log(radiatorsHistory);
+import { DATE } from "@/constants/mock/radiators";
+
+const { getHistoryByDate } = useFirestoreRadiators();
+
+const {
+  pending,
+  data: radiatorsHistory,
+  refresh,
+} = await useAsyncData("radiatorsHistory", () => getHistoryByDate(DATE), {
+  lazy: true,
+});
+
+onMounted(() => {
+  refresh();
+});
 </script>
 
 <template>
-  <p class="date">Date: {{ radiatorsHistory.date }}</p>
-  <div v-for="(radiator, index) of radiatorsHistory.radiators" :key="index">
-    <p class="radiator-name">{{ radiator.name }}</p>
+  <p class="date">Date: {{ DATE }}</p>
+  <p v-if="pending">Loading...</p>
+  <div
+    v-else
+    v-for="(radiator, radiatorIndex) of radiatorsHistory"
+    :key="radiatorIndex"
+  >
+    <p class="radiator-name">
+      {{ radiator.name }}
+    </p>
     <table class="history-table">
       <RadiatorsHistoryHead />
       <RadiatorsHistoryBody :hours="radiator.hours" />

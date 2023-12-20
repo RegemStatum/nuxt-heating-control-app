@@ -1,6 +1,6 @@
 <template>
   <PageTitle title="Charts" />
   <PageSection title="History">
-    <ChartHistory />
+    <ChartRadiatorsHistory />
   </PageSection>
 </template>

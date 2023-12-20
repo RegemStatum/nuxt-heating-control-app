@@ -1,10 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { getRadiators } = useFirestoreRadiators();
+
+const {
+  data: radiators,
+  pending,
+  refresh,
+} = await useAsyncData("radiators", () => getRadiators(), {
+  lazy: true,
+});
+
+onMounted(() => {
+  refresh();
+});
+</script>
 
 <template>
   <div class="container">
     <table class="table">
       <RadiatorsListHead />
-      <RadiatorsListBody />
+      <div v-if="pending">Loading...</div>
+      <RadiatorsListBody v-else :radiators="radiators" />
     </table>
   </div>
 </template>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
-const { getRadiatorsData } = useFirebaseRadiators();
-const radiators = useState("radiators", () => getRadiatorsData());
+import type { Radiator } from "~/composables/useFirestoreRadiators";
+
+interface Props {
+  radiators: Record<string, Radiator> | null;
+}
+defineProps<Props>();
 </script>
 
 <template>
