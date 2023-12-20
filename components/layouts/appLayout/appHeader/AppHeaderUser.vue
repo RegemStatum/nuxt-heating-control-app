@@ -1,10 +1,18 @@
 <script setup lang="ts">
 const { user } = useFirebaseAuth();
+
+const DEFAULT_USERNAME = "Us";
+const userEmail = useState("userEmail", () => DEFAULT_USERNAME);
+
+onMounted(() => {
+  userEmail.value =
+    user?.value?.email?.trim().substring(0, 2) || DEFAULT_USERNAME;
+});
 </script>
 
 <template>
   <NuxtLink to="/user" class="container">
-    <p class="text">{{ user?.email?.trim().substring(0, 2) }}</p>
+    <p class="text">{{ userEmail }}</p>
   </NuxtLink>
 </template>
 
