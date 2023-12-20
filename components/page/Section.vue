@@ -1,13 +1,13 @@
 <script setup lang="ts">
 interface Props {
-  title: string;
+  title?: string;
 }
 defineProps<Props>();
 </script>
 
 <template>
   <div class="section">
-    <h2 class="title">{{ title }}</h2>
+    <h2 v-if="title" class="title">{{ title }}</h2>
     <slot></slot>
   </div>
 </template>
