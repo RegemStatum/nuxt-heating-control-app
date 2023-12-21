@@ -76,7 +76,7 @@ const templateInfo = computed(() =>
   height: $pageHeight;
 }
 .form-container {
-  $containerMaxWidth: 389px;
+  $containerMaxWidth: 390px;
   @include sectionContainer;
   @include boxShadow3;
 
