@@ -12,10 +12,6 @@ const authStore = useAuthStore();
 const { authType, user, isLoading, error } = storeToRefs(authStore);
 const { beginLoading, endLoading, setError, clearUser, clearError } = authStore;
 
-const getErrorMessageFromErrorCode = (errorCode: string) => {
-  return errorCode.split("/")[1].split("-").join(" ");
-};
-
 const handleSubmit = async () => {
   try {
     beginLoading();

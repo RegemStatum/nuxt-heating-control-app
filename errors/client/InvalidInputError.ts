@@ -1,12 +1,11 @@
-import ClientErrorType from "./clientErrorType";
+import ClientError from "./clientError";
 
 class InvalidInputError extends Error {
-  type: ClientErrorType;
   inputName?: string;
 
   constructor(message: string, inputName?: string) {
     super(message);
-    this.type = ClientErrorType.INVALID_INPUT;
+    this.name = ClientError.INVALID_INPUT;
     this.inputName = inputName || "";
   }
 }

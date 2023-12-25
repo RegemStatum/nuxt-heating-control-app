@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
   type User,
@@ -59,6 +60,10 @@ const useFirebaseAuth = () => {
     localStorage.setItem(LocalStorageItems.User, "");
   };
 
+  const resetPassword = async (email: string) => {
+    await sendPasswordResetEmail($auth, email);
+  };
+
   return {
     user,
     registerUser,
@@ -66,6 +71,7 @@ const useFirebaseAuth = () => {
     logoutUser,
     setUserFromLocalStorage,
     checkIsUserInLocalStorage,
+    resetPassword,
   };
 };
 

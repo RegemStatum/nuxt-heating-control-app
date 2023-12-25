@@ -22,7 +22,7 @@ const signupTemplateInfo: TemplateInfo = {
   },
   submitButtonText: "Sign up",
   otherAuthPage: {
-    hintText: "Follow the link if you have an account already: ",
+    hintText: "I have an account already: ",
     linkText: "Log in",
     linkTo: "/auth/login",
   },
@@ -34,7 +34,7 @@ const loginTemplateInfo: TemplateInfo = {
   },
   submitButtonText: "Log in",
   otherAuthPage: {
-    hintText: "Follow the link if you are not registered yet: ",
+    hintText: "I am not registered yet: ",
     linkText: "Sign up",
     linkTo: "/auth/signup",
   },

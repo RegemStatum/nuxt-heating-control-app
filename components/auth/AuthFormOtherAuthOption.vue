@@ -8,10 +8,16 @@ defineProps<Props>();
 </script>
 
 <template>
-  <p class="hint">
-    {{ hintText }}
-    <NuxtLink :to="linkTo" class="link">{{ linkText }}</NuxtLink>
-  </p>
+  <div>
+    <p class="hint">
+      {{ hintText }}
+      <NuxtLink :to="linkTo" class="link">{{ linkText }}</NuxtLink>
+    </p>
+    <p class="hint">
+      I have forgotten password:
+      <NuxtLink to="/auth/resetPassword" class="hint">Reset password</NuxtLink>
+    </p>
+  </div>
 </template>
 
 <style scoped lang="scss">

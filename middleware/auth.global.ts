@@ -6,12 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const { user } = useFirebaseAuth();
 
-  enum Path {
-    SIGN_UP = "/auth/signup",
-    LOG_IN = "/auth/login",
-  }
-  const isNavigateToAuthPages =
-    to.path === Path.SIGN_UP || to.path === Path.LOG_IN;
+  const isNavigateToAuthPages = to.path.startsWith("/auth");
 
   // Set user if there is no current user and there is user in local storage
   const { checkIsUserInLocalStorage, setUserFromLocalStorage } =

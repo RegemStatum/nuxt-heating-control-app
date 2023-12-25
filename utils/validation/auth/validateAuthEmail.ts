@@ -1,7 +1,7 @@
 import { InvalidInputError } from "@/errors/client";
 import {
-  EMAIL_MIN_LENGTH,
-  EMAIL_MAX_LENGTH,
+  EMAIL_LENGTH_MIN,
+  EMAIL_LENGTH_MAX,
 } from "~/constants/validation/auth/email";
 
 const checkIsValidEmail = (email: string) => {
@@ -15,16 +15,16 @@ const validateAuthEmail = (email: string, emailInputName?: string) => {
     throw new InvalidInputError("Email must not be empty", emailInputName);
   }
 
-  if (email.length < EMAIL_MIN_LENGTH) {
+  if (email.length < EMAIL_LENGTH_MIN) {
     throw new InvalidInputError(
-      `Email must contain at least ${EMAIL_MIN_LENGTH} characters`,
+      `Email must contain at least ${EMAIL_LENGTH_MIN} characters`,
       emailInputName
     );
   }
 
-  if (email.length > EMAIL_MAX_LENGTH) {
+  if (email.length > EMAIL_LENGTH_MAX) {
     throw new InvalidInputError(
-      `Email must contain at most ${EMAIL_MAX_LENGTH} characters`,
+      `Email must contain at most ${EMAIL_LENGTH_MAX} characters`,
       emailInputName
     );
   }

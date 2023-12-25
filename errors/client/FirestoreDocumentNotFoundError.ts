@@ -1,11 +1,9 @@
-import ClientErrorType from "./clientErrorType";
+import ClientError from "./clientError";
 
 class FirestoreDocumentNotFoundError extends Error {
-  type: ClientErrorType;
-
   constructor(message: string) {
     super(message);
-    this.type = ClientErrorType.FIRESTORE_DOCUMENT_NOT_FOUND;
+    this.name = ClientError.FIRESTORE_DOCUMENT_NOT_FOUND;
   }
 }
 
