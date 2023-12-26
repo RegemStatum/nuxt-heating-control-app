@@ -6,7 +6,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const { user } = useFirebaseAuth();
 
-  const isNavigateToAuthPages = to.path.startsWith("/auth");
+  const isNavigateToAuthPages =
+    to.path === "/auth/signup" || to.path === "/auth/login";
 
   // Set user if there is no current user and there is user in local storage
   const { checkIsUserInLocalStorage, setUserFromLocalStorage } =
@@ -26,13 +27,15 @@ export default defineNuxtRouteMiddleware((to, from) => {
   }
 
   // Redirect to home page if user is authenticated and
-  // tries to navigate to auth pages
+  // tries to navigate to auth login or signup pages
   if (user.value && isNavigateToAuthPages) {
     return navigateTo("/");
   }
 
-  // Redirect to signup page if user is not authenticated
-  if (!user.value && !isNavigateToAuthPages) {
+  const isResetPasswordPage = to.path === "/auth/resetPassword";
+  // Redirect user to signup page if user is not authenticated and
+  // tries to access non-auth routes
+  if (!user.value && !isNavigateToAuthPages && !isResetPasswordPage) {
     return navigateTo("/auth/signup");
   }
 });

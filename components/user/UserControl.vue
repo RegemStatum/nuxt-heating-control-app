@@ -5,6 +5,9 @@ const { user } = useFirebaseAuth();
 <template>
   <div class="container">
     <p>User: {{ user?.email }}</p>
+    <div>
+      <NuxtLink to="/auth/resetPassword">Reset password</NuxtLink>
+    </div>
     <UserLogout />
   </div>
 </template>

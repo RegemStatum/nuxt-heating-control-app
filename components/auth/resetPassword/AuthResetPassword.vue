@@ -8,7 +8,7 @@
       class="heading"
     />
     <AuthResetPasswordForm />
-    <NuxtLink to="/auth/login" class="link">Back to login page</NuxtLink>
+    <NuxtLink to="/auth/login" class="link">Go back</NuxtLink>
   </div>
 </template>
 

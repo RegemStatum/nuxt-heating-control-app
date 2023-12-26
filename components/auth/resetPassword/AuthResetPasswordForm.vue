@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { logoutUser } = useFirebaseAuth();
 const { resetPassword } = useFirebaseAuth();
 
 const email = useState("email", () => "");
@@ -23,6 +24,7 @@ const handleResetPassword = async () => {
   try {
     isLoading.value = true;
 
+    await logoutUser();
     validateAuthEmail(email.value, "email");
     await resetPassword(email.value);
 
@@ -50,6 +52,10 @@ const handleResetPassword = async () => {
     isLoading.value = false;
   }
 };
+
+onBeforeUnmount(() => {
+  isEmailSent.value = false;
+});
 </script>
 
 <template>
