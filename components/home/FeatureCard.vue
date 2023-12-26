@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  icon: string;
+  icon: Component;
   heading: string;
   text: string;
 }
