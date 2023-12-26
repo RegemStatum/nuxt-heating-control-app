@@ -12,8 +12,8 @@ defineProps<Props>();
 
 <style scoped lang="scss">
 .heading {
-  padding-top: getInd(500);
-  padding-bottom: getInd(500);
+  padding-top: getInd(600);
+  padding-bottom: getInd(300);
   font-size: getFontSize(700);
   line-height: getLineHeight(700);
 }

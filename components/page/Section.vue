@@ -18,7 +18,7 @@ defineProps<Props>();
   padding-bottom: getInd(600);
 
   .title {
-    padding-bottom: getInd(300);
+    padding-bottom: getInd(400);
     font-size: getFontSize(500);
     line-height: getLineHeight(500);
     font-weight: 800;

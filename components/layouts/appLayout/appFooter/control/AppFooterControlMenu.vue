@@ -14,7 +14,7 @@ const toggleSidebar = () => {
   <button type="button" @click="toggleSidebar" class="button">
     <div class="control-item">
       <Bars3Icon class="icon" />
-      <!-- <p class="text" :class="{ active: isSidebarOpen }">Menu</p> -->
+      <p class="text" :class="{ active: isSidebarOpen }">Menu</p>
     </div>
   </button>
 </template>

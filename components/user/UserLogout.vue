@@ -20,5 +20,7 @@ const handleUserLogout = async () => {
 <style scoped lang="scss">
 .logout-btn {
   @include primaryButton;
+
+  width: max-content;
 }
 </style>
