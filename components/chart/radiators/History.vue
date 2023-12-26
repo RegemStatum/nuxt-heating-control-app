@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { Line } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
-  PointElement,
-  LineElement,
+  BarElement,
   CategoryScale,
   LinearScale,
 } from "chart.js";
@@ -18,8 +17,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  PointElement,
-  LineElement,
+  BarElement,
   CategoryScale,
   LinearScale
 );
@@ -125,7 +123,7 @@ watch(radiators, (newRadiators) => {
 
 <template>
   <p v-if="pending">Loading...</p>
-  <Line v-else id="my-chart" :options="chartOptions" :data="chartData" />
+  <Bar v-else id="my-chart" :options="chartOptions" :data="chartData" />
 </template>
 
 <style scoped lang="scss"></style>
