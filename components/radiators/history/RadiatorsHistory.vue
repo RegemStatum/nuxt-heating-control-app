@@ -24,9 +24,12 @@ onMounted(() => {
     v-for="(radiator, radiatorIndex) of radiatorsHistory"
     :key="radiatorIndex"
   >
-    <p class="radiator-name">
-      {{ radiator.name }}
-    </p>
+    <div class="radiator-name-container">
+      <div class="accent"></div>
+      <p class="radiator-name">
+        {{ radiator.name }}
+      </p>
+    </div>
     <table class="history-table">
       <RadiatorsHistoryHead />
       <RadiatorsHistoryBody :hours="radiator.hours" />
@@ -39,12 +42,24 @@ onMounted(() => {
   padding-top: getInd(400);
 }
 
-.radiator-name {
+.radiator-name-container {
+  display: flex;
+  gap: getInd(400);
   padding-top: getInd(800);
   padding-bottom: getInd(200);
-  text-transform: capitalize;
-  font-size: getFontSize(500);
-  font-weight: 500;
+  .accent {
+    $accentWidth: 5px;
+
+    width: $accentWidth;
+    border-radius: getBorderRadius(400);
+    background-color: getColor("nt-5");
+  }
+
+  .radiator-name {
+    text-transform: capitalize;
+    font-size: getFontSize(500);
+    font-weight: 500;
+  }
 }
 
 .history-table {
