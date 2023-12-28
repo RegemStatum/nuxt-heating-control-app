@@ -15,11 +15,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <RadiatorsListSkeleton v-if="pending || !radiators" />
+  <div class="container" v-else>
     <table class="table">
       <RadiatorsListHead />
-      <div v-if="pending">Loading...</div>
-      <RadiatorsListBody v-else :radiators="radiators" />
+      <RadiatorsListBody :radiators="radiators" />
     </table>
   </div>
 </template>

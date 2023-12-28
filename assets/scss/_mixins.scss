@@ -151,3 +151,15 @@
     background-color: getColor("nt-8");
   }
 }
+
+// Animations
+@mixin animationSkeletonLoading {
+  @keyframes skeleton-loading {
+    0% {
+      background-color: getColor("nt-10");
+    }
+    100% {
+      background-color: getColor("nt-8");
+    }
+  }
+}

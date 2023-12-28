@@ -18,7 +18,7 @@ onMounted(() => {
 
 <template>
   <p class="date">Date: {{ DATE }}</p>
-  <p v-if="pending">Loading...</p>
+  <RadiatorsHistorySkeleton v-if="pending || !radiatorsHistory" />
   <div
     v-else
     v-for="(radiator, radiatorIndex) of radiatorsHistory"
