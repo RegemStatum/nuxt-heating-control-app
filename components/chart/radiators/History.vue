@@ -122,7 +122,7 @@ watch(radiators, (newRadiators) => {
 </script>
 
 <template>
-  <p v-if="pending">Loading...</p>
+  <ChartRadiatorsHistoryLoader v-if="pending || !radiators" />
   <Bar v-else id="my-chart" :options="chartOptions" :data="chartData" />
 </template>
 
